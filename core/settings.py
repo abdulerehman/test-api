@@ -9,10 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 
-if os.environ.get("ENV") == "DEV":
-    DEBUG = True
-elif os.environ.get("ENV") == "PROD":
-    DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["salahsaadaoui8.pythonanywhere.com", "127.0.0.1"]
 
@@ -110,8 +107,6 @@ if not DEBUG:
         'django.contrib.auth.middleware.AuthenticationMiddleware',
         'django.contrib.messages.middleware.MessageMiddleware',
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
-        'core.middleware.TokenToUserMiddleware',
-        'tracking.middleware.TrackerMiddleware'
     ]
 
 if not DEBUG:
